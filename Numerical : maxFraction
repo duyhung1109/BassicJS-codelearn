@@ -1,0 +1,12 @@
+function maxFraction(numerators, denominators){
+    var maxFrac = 0;
+    var index = 0;
+    for( let i=0; i<numerators.length; i++ ){
+        if( (numerators[i]/denominators[i]) > maxFrac ){
+            maxFrac = (numerators[i]/denominators[i]);
+            index = i;
+        }
+    }
+    return index;
+}
+maxFraction([5, 2, 5],[6, 3, 4]);
