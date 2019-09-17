@@ -1,0 +1,45 @@
+function isPrime(n){
+  if( n==0 ) return false;
+  for( let i=2; i<n; i=i+1 ){
+    if( n%i == 0 ){
+      return false;
+    }
+  }
+  return true;
+}
+
+function biggerPrime(n){
+  var bigger = 0;
+  for( let i=2; i<=n; i++ ){
+    while( (n%i == 0) ){
+      if( i > bigger){ bigger = i }
+      
+      n=n/i;
+    } 
+  }
+  return bigger;
+}
+
+function greatestCommonPrimeDivisor(a, b){      
+  if (a==0 || b==0){
+    return a+b;
+  }else{
+    while (a != b){
+      if( (a==1) || (b==1) ){
+        return -1;
+      }
+      if(a>b){
+        a=a-b;
+      }else{
+        b=b-a;
+      }
+    }
+  }
+
+  if( isPrime(a) == false ){
+    a = biggerPrime(a);
+  }
+  return a;    
+}
+
+greatestCommonPrimeDivisor(2,3);
