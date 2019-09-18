@@ -1,0 +1,32 @@
+function isPrime(n){
+    if( n == 0 ) return false;
+        for( let i=2; i<Math.sqrt(n); i=i+1 ){
+        if( n%i == 0 ){
+            return false;
+        }
+    }
+    return true;
+}
+function digitsProduct(product){
+    var output = '';
+    var result = '';
+    if( (product == 0) ){
+        output = 10;
+    }else if( isPrime(product) == true ){
+        output = -1;
+    }else{
+        for( let i=9; i>=2; i-- ){
+          while( product%i == 0 ){
+            output = output.concat(i);
+            product /= i;
+          }
+        }
+        for( let j=output.length - 1; j>=0; j-- ){
+          result += output[j];
+        }
+        return parseInt(result);
+    }
+    return parseInt(output);
+}
+
+digitsProduct(19);
