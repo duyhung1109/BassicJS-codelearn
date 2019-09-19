@@ -1,0 +1,13 @@
+function amendTheSentence(s){
+    var cap = 'ABCDEFGHIJKMLNOPQRWTUVSXYZ';
+    for( let i=0 ; i<s.length; i++ ){
+        if( cap.includes(s[i]) == true ){
+            if(i>0){
+              s = s.replace( s[i], ' '+s[i].toLowerCase() );
+            }else{
+              s = s.replace( s[i], s[i].toLowerCase() );
+            }
+        }
+    }
+    return s;
+}
