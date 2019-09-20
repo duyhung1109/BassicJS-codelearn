@@ -1,0 +1,10 @@
+function checkPalindrome(inputString){
+    var n = inputString.length - 1;
+    for( let i=0; i< Math.abs(inputString.length / 2); i++ ){
+        if( inputString[i] != inputString[n] ){
+            return false;
+        }
+        n--;
+    }
+    return true;
+}
