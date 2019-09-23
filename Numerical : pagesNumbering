@@ -1,0 +1,8 @@
+function pagesNumbering(n){
+  let out = 0;
+  for(let i=1; i<=n; i = i*10){
+    out = out + (n-i+1);
+  }
+  return out;
+}
+pagesNumbering(1001);
