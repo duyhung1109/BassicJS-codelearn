@@ -1,0 +1,10 @@
+function formatString(input){
+  var result = '';
+    for( let i=0; i<input.length; i++ ){
+      if( (input.charAt(i) != " ") || (input.charAt(i-1) != " " && input.charAt(i+1) != " ") || (input.charAt(i-1) != " " && input.charAt(i) == " ") ){
+        result += input.charAt(i);
+      }
+    }
+  return result.trim();
+}
+formatString('   a adh    asd  ');
