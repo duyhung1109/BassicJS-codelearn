@@ -1,0 +1,20 @@
+function isTandemRepeat(inputString){
+  if( inputString.length%2 == 0 ){
+    const len = inputString.length;
+    let subString = '';
+    for(let i=0; i<len/2; i++){
+        subString = inputString.slice(0, len/(2));
+        
+        let arr = inputString.split(subString);
+        
+        for(let j=0; j<arr.length; j++){
+          if(arr[j].length != 0){
+            return false; 
+          }
+        }
+    }
+  }else{
+    return false;
+  }
+  return true;
+}
