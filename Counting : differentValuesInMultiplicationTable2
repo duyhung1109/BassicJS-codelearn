@@ -1,0 +1,12 @@
+function differentValuesInMultiplicationTable2(n, m){
+    var arrVal = [];
+    for( let i=1; i<=n; i++ ){
+        for( let j=1; j<=m; j++ ){
+            let sum = i*j;
+            if( arrVal.indexOf(sum) == -1 ){
+                arrVal.push(sum);
+            }
+        }
+    }
+    return arrVal.length;
+}
