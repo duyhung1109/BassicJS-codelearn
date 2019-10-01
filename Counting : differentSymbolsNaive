@@ -1,0 +1,11 @@
+function differentSymbolsNaive(s){
+    let arr = s.split('');
+    let isExist = (arr, x) => arr.indexOf(x) > -1;
+  let ans = [];
+
+  arr.forEach(element => {
+    if(!isExist(ans, element)) ans.push(element);
+  });
+
+  return ans.length;
+}
