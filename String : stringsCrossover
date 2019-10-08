@@ -1,0 +1,26 @@
+function stringsCrossover(inputArray, result){
+  var count = 0;
+  for( let i=0; i<inputArray.length; i++ ){
+    var a = inputArray[i];
+    if(a.length !== result.length){ return false; }
+
+    inputArray.forEach( function (value, index){
+      if( i != index ){
+        if( a.length != value.length ) { return false; }
+        let j = 0;
+        let subcount = 0;
+        while( a.length > j ){
+          if( a[j] == result[j] || value[j] == result[j] ){
+            subcount = subcount + 1;
+          }
+          j = j + 1;
+        }
+        if( subcount == a.length ){ count++; }
+      }
+    })
+  }
+
+  return count / 2;
+}
+
+stringsCrossover(["abc", "aaa", "aba", "bab"], "bbb");
