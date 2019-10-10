@@ -1,0 +1,7 @@
+function differentSubstringsTrie(inputString){
+  var result = 0;
+  var newArr = [];
+
+  
+  
+}
