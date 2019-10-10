@@ -1,23 +1,31 @@
 function checkEqualFrequency(inputArray){
-  let differentArr = inputArray;
-  let i = 0;
-  console.log(differentArr.indexOf(5));
-  differentArr.forEach( function(value,index){ 
-    
-    if( differentArr.indexOf(differentArr[index]) != -1 ){
-      console.log('value', differentArr[index]);
-      console.log('index', differentArr.indexOf(differentArr[index]));
-      differentArr.splice( differentArr.lastIndexOf(differentArr[index]), 1 );
-    }
-  });
-  
-  console.log(inputArray.length);
-  console.log(differentArr);
+  let newArr = [];
 
-  if( inputArray.length % differentArr.length == 0 ){
+  inputArray.forEach( function( value ){
+    if( newArr.indexOf(value) === -1 ){
+      newArr.push(value);
+    }
+  })
+
+  if( inputArray.length % newArr.length !== 0 ){
+    return false;
+  }
+  if( newArr.length === 1 ){
     return true;
   }
-  return false;
+  let numLoop = inputArray.length / newArr.length;
+  
+  while( numLoop > 0 ){
+    newArr.forEach( function( value ){
+      if( inputArray.indexOf(value) != -1  ){
+        inputArray.splice( inputArray.indexOf(value), 1 );
+      }else{
+        return false;
+      }
+      
+    })
+    numLoop -= 1;
+    if( inputArray.length == 0 ){ return true; }
+  }
 }
-
-checkEqualFrequency([1, 5, 2, 1, 2]);
+checkEqualFrequency([1, 2, 1, 2, 2, 5, 1, 5]);
