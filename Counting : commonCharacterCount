@@ -1,12 +1,29 @@
 function commonCharacterCount(s1, s2){
-    arr1 = s1.split('');
-    arr2 = s2.split('');
+  let arr1 = s1.split('');
+  let arr2 = s2.split('');
+  let count = 0;
+  let i = 0;
+  let j = 0;
 
-      while( arr2.indexOf(arr1[0]) !== -1 ){
-        arr2.splice(arr2.indexOf(arr1[0]), 1);
-        arr1.splice(0, 1);
-         if( arr1.length == 0 && arr2.length == 0 ){ return true; }
+  while( arr1[i] != undefined ){
+    while( arr2[j] != undefined ){
+      if( arr1[i] == arr2[j] ){
+        count += 1;
+        arr2.splice( arr2.indexOf(arr1[i]), 1);
+        arr1.splice( i, 1);
+        j = 0;
+      }else{
+        j += 1;
+        if( arr2[j] == undefined && arr1[i] != undefined ){
+          i += 1;
+          j = 0;
+        }
       }
+      
+    }
+  }
 
-    return false;
+  return count;
 }
+
+commonCharacterCount('abca', 'xyzbac');
