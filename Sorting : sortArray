@@ -1,0 +1,15 @@
+function sortArray(arr){
+  for(let i = 0; i < arr.length - 1; i++){
+    let idmin = i;
+    for(let j = i + 1; j < arr.length; j++){
+      if(arr[j] < arr[idmin]) idmin = j;
+    }
+
+    // swap
+    let t = arr[i];
+    arr[i] = arr[idmin];
+    arr[idmin] = t;
+  }
+  return arr;
+}
+sortArray([6,5,4,3,2,1]);
