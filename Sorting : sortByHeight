@@ -1,0 +1,15 @@
+function sortByHeight(a){
+  for(let i = 0; i < a.length - 1; i++){
+    let idmin = i;
+    for(let j = i + 1; j < a.length; j++){
+      if( (a[j] < a[idmin]) && (a[j] != -1) && (a[idmin] != -1) ) idmin = j;
+    }
+
+    // swap
+    let t = a[i];
+    a[i] = a[idmin];
+    a[idmin] = t;
+  }
+  return a;
+}
+sortByHeight([-1, 150, 190, 170, -1, -1, 160, 180]);
