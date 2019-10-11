@@ -1,0 +1,28 @@
+function digitalSumSort(a){
+  for( let i=0; i<a.length; i++ ){
+    let id = i;
+    for( let j=i+1; j<a.length; j++ ){
+      let totalId = 0; 
+      let arrId = (""+a[id]).split("");
+      let totalJ = 0;
+      let arrJ = (""+a[j]).split("");
+      arrId.forEach( function(value){
+        totalId += parseInt(value);
+      });
+      arrJ.forEach( function(value){
+        totalJ += parseInt(value);
+      });
+
+      if( (totalId > totalJ) || ((totalId == totalJ) && (a[id] > a[j]) )){
+        id = j
+      }
+    }
+
+    // swap
+    let t = a[i];
+    a[i] = a[id];
+    a[id] = t;
+  }
+  return a;
+}
+digitalSumSort([13, 20, 7, 4])
