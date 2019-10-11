@@ -1,0 +1,19 @@
+function areSimilar(a, b){
+  var tmp = [];
+  var count = 0;
+  for(let i = 0; i <= a.length - 1; i++){
+    if( a[i] != b[i] ){
+      tmp.push(a[i], b[i]);
+      count++;
+      if( count > 2 ){ return false; }
+    }
+  }
+ 
+
+  if( tmp == '' || tmp.length == 4 ){
+    if( (tmp[0] == tmp[3]) && (tmp[1] == tmp[2]) ){ 
+      return true;
+    }
+  }
+  return false;
+}
